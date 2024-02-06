@@ -24,7 +24,7 @@ const userSchema = new mongoose_1.default.Schema({
     },
     token: [
         {
-            type: String
+            type: Object
         }
     ]
 }, {
@@ -36,7 +36,7 @@ userSchema.pre("save", async function (next) {
     }
     this.password = await bcryptjs_1.default.hash(this.password, 10);
 });
-userSchema.methods.isPasswordValid = function (password) {
+userSchema.methods.isPasswordValidated = function (password) {
     return bcryptjs_1.default.compare(password, this.password);
 };
 userSchema.methods.getJwtToken = function () {
