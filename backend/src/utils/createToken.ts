@@ -10,7 +10,8 @@ export const createToken = async(res:Response,user:any)=>{
                     token:newToken,
                     signedAt: Date.now().toString()
                 }];
-            await User.findByIdAndUpdate(user._id,{token})
+                user.token = token;
+                await User.findByIdAndUpdate(user._id,{token})
         }else{
             const token = [{
                     token:newToken,

@@ -11,6 +11,10 @@ export type LoginUserRequestBody = {
     password:string;
 }
 
+export interface NewTaskRequestBody{
+    title:string;
+    description:string;
+}
 export interface AuthRequest extends Request{
     user?:any;
 }

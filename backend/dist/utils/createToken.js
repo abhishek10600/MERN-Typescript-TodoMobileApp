@@ -14,6 +14,7 @@ const createToken = async (res, user) => {
                     token: newToken,
                     signedAt: Date.now().toString()
                 }];
+            user.token = token;
             await userModel_1.default.findByIdAndUpdate(user._id, { token });
         }
         else {

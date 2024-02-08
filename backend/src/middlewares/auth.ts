@@ -1,7 +1,7 @@
 import { NextFunction, Response } from "express"
 import jwt from "jsonwebtoken";
 import User from "../models/userModel";
-import { AuthRequest } from "../types/types";
+import { AuthRequest} from "../types/types";
 
 
 export const isLoggedIn = async(req:AuthRequest,res:Response,next:NextFunction)=>{
